@@ -6,6 +6,7 @@ class Exit < Command
   end
 
   def execute
+    puts 'Thank you for using simple_warehouse!'
     exit
   end
 end

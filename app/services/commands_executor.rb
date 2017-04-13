@@ -10,6 +10,7 @@ class CommandsExecutor
   end
 
   def execute(cmd)
-    @commands[cmd].execute
+    cmd_object = @commands[cmd] || NullCommand.new
+    cmd_object.execute
   end
 end
