@@ -5,7 +5,7 @@ class NullCommand < Command
     super 'Command not found. Type `help` for instructions on usage'
   end
 
-  def execute
+  def execute(args)
     puts description
   end
 end

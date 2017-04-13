@@ -2,20 +2,19 @@ require './app/services/commands_executor'
 require './app/commands/show_help_message'
 require './app/commands/exit'
 require './app/commands/null_command'
+require './app/commands/init_warehouse'
+require './app/simple_warehouse_constants'
 
 class SimpleWarehouse
-  INVITATION = 'Type `help` for instructions on usage'
-  HELP_CMD = 'help'
-  EXIT_CMD = 'exit'
-
   def initialize
     @cmd_executor = CommandsExecutor.new
-    @cmd_executor.add_command HELP_CMD, ShowHelpMessage.new
-    @cmd_executor.add_command EXIT_CMD, Exit.new
+    @cmd_executor.add_command SimpleWarehouseConstants::HELP_CMD, ShowHelpMessage.new
+    @cmd_executor.add_command SimpleWarehouseConstants::INIT_CMD, InitWarehouse.new
+    @cmd_executor.add_command SimpleWarehouseConstants::EXIT_CMD, Exit.new
   end
 
   def run
-    puts INVITATION
+    puts SimpleWarehouseConstants::INVITATION
     while true
       print '> '
       command = get_command

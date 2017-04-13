@@ -1,3 +1,5 @@
+require_relative 'command_parser'
+
 class CommandsExecutor
   attr_reader :commands
 
@@ -10,7 +12,8 @@ class CommandsExecutor
   end
 
   def execute(cmd)
-    cmd_object = @commands[cmd] || NullCommand.new
-    cmd_object.execute
+    parser = CommandParser.new(cmd)
+    cmd_object = @commands[parser.parse] || NullCommand.new
+    cmd_object.execute(parser.args)
   end
 end

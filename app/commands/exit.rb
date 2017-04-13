@@ -5,7 +5,7 @@ class Exit < Command
     super 'Exits the application'
   end
 
-  def execute
+  def execute(args)
     puts 'Thank you for using simple_warehouse!'
     exit
   end
