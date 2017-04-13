@@ -1,33 +1,35 @@
 class SimpleWarehouse
+  INVITATION = 'Type `help` for instructions on usage'
+  HELP_CMD = 'help'
+
+  def initialize
+    @cmd_executor = CommandsExecutor.new
+    @cmd_executor.add_command HELP_CMD, ShowHelpMessage.new()
+  end
 
   def run
     @live = true
-    puts 'Type `help` for instructions on usage'
+    puts INVITATION
     while @live
       print '> '
-      command = gets.chomp
-      case command
-        when 'help'
-          show_help_message
-        when 'exit'
-          exit
-        else
-          show_unrecognized_message
-      end
+      command = get_command
+      @cmd_executor.execute(command)
+      # case command
+      #   when 'help'
+      #     show_help_message
+      #   when 'exit'
+      #     exit
+      #   else
+      #     show_unrecognized_message
+      # end
     end
   end
 
-  private
-
-  def show_help_message
-    puts 'help             Shows this help message
-init W H         (Re)Initialises the application as a W x H warehouse, with all spaces empty.
-store X Y W H P  Stores a crate of product number P and of size W x H at position X,Y.
-locate P         Show a list of positions where product number can be found.
-remove X Y       Remove the crate at positon X,Y.
-view             Show a representation of the current state of the warehouse, marking each position as filled or empty.
-exit             Exits the application.'
+  def get_command
+    gets.chomp
   end
+
+  private
 
   def show_unrecognized_message
     puts 'Command not found. Type `help` for instructions on usage'
@@ -37,5 +39,4 @@ exit             Exits the application.'
     puts 'Thank you for using simple_warehouse!'
     @live = false
   end
-
 end
