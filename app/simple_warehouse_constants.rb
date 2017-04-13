@@ -3,4 +3,5 @@ class SimpleWarehouseConstants
   HELP_CMD = 'help'
   INIT_CMD = 'init'
   EXIT_CMD = 'exit'
+  VIEW_CMD = 'view'
 end

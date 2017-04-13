@@ -13,6 +13,8 @@ class CommandParser
       when /init\s(.*)\s(.*)/
         @args.push($1.to_i, $2.to_i)
         SimpleWarehouseConstants::INIT_CMD
+      when /view/
+        SimpleWarehouseConstants::VIEW_CMD
       when /exit/
         SimpleWarehouseConstants::EXIT_CMD
       else
