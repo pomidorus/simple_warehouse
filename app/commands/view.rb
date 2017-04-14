@@ -13,5 +13,6 @@ class View < Command
     (1..header[0].to_i).each do |_|
       puts f.readline
     end
+    f.close
   end
  end

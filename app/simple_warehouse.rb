@@ -9,13 +9,17 @@ require './app/commands/view'
 require './app/commands/store_crate'
 require './app/simple_warehouse_constants'
 require './app/models/warehouse'
+require './app/models/crate'
+require './app/models/position'
 
 class SimpleWarehouse
   def initialize
+    warehouse_reader = WarehouseReader.new
+    warehouse_storer = WarehouseStorer.new
     @cmd_executor = CommandsExecutor.new
     @cmd_executor.add_command SimpleWarehouseConstants::HELP_CMD, ShowHelpMessage.new
     @cmd_executor.add_command SimpleWarehouseConstants::INIT_CMD, InitWarehouse.new
-    @cmd_executor.add_command SimpleWarehouseConstants::STORE_CMD, StoreCrate.new
+    @cmd_executor.add_command SimpleWarehouseConstants::STORE_CMD, StoreCrate.new(warehouse_reader, warehouse_storer)
     @cmd_executor.add_command SimpleWarehouseConstants::VIEW_CMD, View.new
     @cmd_executor.add_command SimpleWarehouseConstants::EXIT_CMD, Exit.new
   end
