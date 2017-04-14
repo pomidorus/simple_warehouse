@@ -13,9 +13,6 @@ class WarehouseStorer
   private
 
   def validate(crate)
-    # p @warehouse.positions
-    # p crate.positions
-
     unless overlap?(crate)
       puts "Cannot store crate: position doesn't exist or crate does not fit"
       return false
@@ -37,7 +34,7 @@ class WarehouseStorer
     crate_overlap = []
 
     @warehouse.crates.each do |warehouse_crate|
-      crate_overlap << !((warehouse_crate & crate).empty?)
+      crate_overlap << !((warehouse_crate.positions & crate.positions).empty?)
     end
 
     crate_overlap.any?

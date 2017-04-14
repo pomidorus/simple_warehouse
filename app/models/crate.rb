@@ -3,10 +3,10 @@ class Crate
   attr_reader :positions
 
   def initialize(args)
-    @x = args[0]
-    @y = args[1]
-    @width = args[2]
-    @height = args[3]
+    @x = args[0].to_i
+    @y = args[1].to_i
+    @width = args[2].to_i
+    @height = args[3].to_i
     @name = args[4]
     @positions = []
   end
