@@ -7,6 +7,7 @@ class View < Command
 
   def execute(args)
     # delegation
+    # WarehouseViewer
     f = File.open('warehouse.txt', 'r')
     header = f.readline.strip.split
     (1..header[0].to_i).each do |_|
