@@ -2,7 +2,7 @@ require_relative '../test_helper'
 
 class TestCommandsExecutor < Minitest::Test
   def setup
-    @cmds_executor = CommandsExecutor.new
+    @cmds_executor = CommandsExecutor.new(NullCommand.new)
   end
 
   def test_that_executor_adds_commands
