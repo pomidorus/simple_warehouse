@@ -1,18 +1,12 @@
 require_relative 'command'
 
 class View < Command
-  def initialize
+  def initialize(warehouse_viewer)
     super "Show a representation of the current state of the warehouse, marking each position as filled or empty."
+    @warehouse_viewer = warehouse_viewer
   end
 
   def execute(args)
-    # delegation
-    # WarehouseViewer
-    f = File.open('warehouse.txt', 'r')
-    header = f.readline.strip.split
-    (1..header[0].to_i).each do |_|
-      puts f.readline
-    end
-    f.close
+    @warehouse_viewer.view
   end
  end

@@ -9,7 +9,15 @@ class Crate
     @height = args[3].to_i
     @name = args[4]
     @positions = []
+
+    init_positions
   end
+
+  def to_s
+    "Crate #{name} at X:#{x} Y:#{y}"
+  end
+
+  private
 
   def init_positions
     (0..(@width - 1)).each do |x|

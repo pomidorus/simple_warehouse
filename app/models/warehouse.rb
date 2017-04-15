@@ -7,14 +7,12 @@ class Warehouse
     @height = args[1]
     @crates = []
     @positions = []
+
+    init_positions
   end
 
-  def init_positions
-    (1..@width).each do |x|
-      (1..@height).each do |y|
-        @positions << Position.new(x, y)
-      end
-    end
+  def find_crates_by_name(name)
+    @crates.select {|crate| crate.name == name}
   end
 
   def save
@@ -43,9 +41,16 @@ class Warehouse
 
   private
 
+  def init_positions
+    (1..@width).each do |x|
+      (1..@height).each do |y|
+        @positions << Position.new(x, y)
+      end
+    end
+  end
+
   def crates_overlap(position)
     @crates.each do |crate|
-      crate.init_positions
       unless (crate.positions & [position]).empty?
         return crate
       end
