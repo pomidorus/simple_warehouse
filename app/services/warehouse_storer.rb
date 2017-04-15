@@ -1,11 +1,6 @@
 class WarehouseStorer
-  def store(warehouse, args)
+  def store(warehouse, crate)
     @warehouse = warehouse
-
-    #refactor
-    crate = Crate.new(args)
-    crate.init_positions
-    #refactor
 
     if validate(crate)
       @warehouse.crates << crate

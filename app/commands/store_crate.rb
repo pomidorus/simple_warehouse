@@ -9,6 +9,6 @@ class StoreCrate < Command
 
   def execute(args)
     @warehouse_reader.read
-    @warehouse_storer.store(@warehouse_reader.warehouse, args)
+    @warehouse_storer.store(@warehouse_reader.warehouse, Crate.new(args))
   end
 end
