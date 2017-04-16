@@ -18,6 +18,9 @@ describe WarehouseRemover do
       @warehouse_remover.remove(@warehouse, Position.new(5,5))
       assert_equal([@crate], @warehouse.crates)
     end
-  end
 
+    it 'returns message to the user if crate do not exists in this position' do
+      assert_output(/There is no any crate at this position/) { @warehouse_remover.remove(@warehouse, Position.new(5,5)) }
+    end
+  end
 end
