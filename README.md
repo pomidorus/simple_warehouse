@@ -201,7 +201,7 @@ Finished in 0.00905s
 - validate user input
 - more integration tests
 - better view of warehouse
-- move save code from warehouse to service
+- move save code from warehouse model to service
 
 
 
