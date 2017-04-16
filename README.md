@@ -154,8 +154,8 @@ BBCCCCC.............
 
 ### Tests
 
-I use TDD process & manual execution when developing this application
-Test coverage is not 100% but at least it cover major critical functionality
+I use TDD process & manual execution when developing this application.
+Test coverage is not 100%, but at least it cover major critical functionality
 
 ````
 Testing started at 16:22 ...
