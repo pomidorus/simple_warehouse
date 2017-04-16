@@ -100,6 +100,13 @@ BBCCCCC.............
 ..CCCCC............. 
 ````
 
+Let type unknown command
+
+````
+> somecmd
+Command not found. Type `help` for instructions on usage
+````
+
 ## App structure
 The app has modular structure based on command pattern. You can easily add new command or remove existing. 
 Or have different behaviour of the same command for different objects.
