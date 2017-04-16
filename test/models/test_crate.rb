@@ -7,7 +7,7 @@ describe Crate do
   end
 
   describe '#initialize' do
-    it 'initialize with an arguments' do
+    it 'Crate class instance' do
       @crate.must_be_instance_of(Crate)
     end
 
