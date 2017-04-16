@@ -147,9 +147,9 @@ BBCCCCC.............
 ..CCCCC............. 
 ````
 
-(1) - width and height of warehouse
-(2) - number of crates
-(3) - list of crates: position, width, height and name
+(1) - width and height of warehouse;
+(2) - number of crates;
+(3) - list of crates: position, width, height and name;
 (4) - text visualization of warehouse
 
 ### Tests
