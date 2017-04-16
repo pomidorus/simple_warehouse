@@ -14,7 +14,7 @@ class Crate
   end
 
   def to_s
-    "Crate #{name} at X:#{x} Y:#{y}"
+    "Crate #{name} at X:#{x} Y:#{y} with W:#{width} H:#{height}"
   end
 
   private

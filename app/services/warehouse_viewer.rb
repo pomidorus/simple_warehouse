@@ -9,7 +9,7 @@ class WarehouseViewer
       f.readline
     end
 
-    (1..header[0].to_i).each do |_|
+    (1..header[1].to_i).each do |_|
       puts f.readline
     end
 
